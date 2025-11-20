@@ -1,94 +1,22 @@
 import './App.css'
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Header from './components/Header'
-import List from './components/List'
-import Counter from './components/Counter'
-import Form from './components/Form'
-import LoadingData from './components/LoadingData'
+import Home from './pages/Home'
+import Posts from './pages/Posts'
+import Detail from './pages/Detail'
+import Components from './pages/Components'
 
 function App() {
-  const nomi = ['Mario', 'Luigi', 'Peach', 'Toad', 'Yoshi', 'Bowser']
-  const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [datiInviati, setDatiInviati] = useState(null)
-
-  const handleSubmit = (e) => {
-    setDatiInviati({
-      nome: nome,
-      email: email
-    })
-  }
-
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <Header />
-
-      <div className="content-section">
-        <h2 className="section-title">Lista Personaggi (Compound Component)</h2>
-        <List>
-          {nomi.map((nome, index) => (
-            <List.Item key={index}>{nome}</List.Item>
-          ))}
-        </List>
-      </div>
-
-      <div className="content-section">
-        <Counter />
-      </div>
-
-      <div className="content-section">
-        <h2 className="form-title">Form di Registrazione (Compound Component)</h2>
-        <Form onSubmit={handleSubmit}>
-          <Form.Input
-            label="Nome:"
-            type="text"
-            id="nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            placeholder="Inserisci il tuo nome"
-            required
-          />
-          <Form.Input
-            label="Email:"
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Inserisci la tua email"
-            required
-          />
-          <Form.Submit>Invia</Form.Submit>
-        </Form>
-
-        {datiInviati && (
-          <div className="result-card">
-            <h3 className="result-title">📋 Dati Inseriti</h3>
-            <div className="result-info">
-              <p><strong>Nome:</strong> {datiInviati.nome}</p>
-              <p><strong>Email:</strong> {datiInviati.email}</p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className="content-section">
-        <LoadingData />
-      </div>
-
-      <div className="form-container">
-        <label htmlFor="userInput" className="input-label">
-          Inserisci il tuo nome:
-        </label>
-        <input
-          type="text"
-          id="userInput"
-          className="custom-input"
-          placeholder="Scrivi qui..."
-        />
-      </div>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:id" element={<Detail />} />
+        <Route path="/components" element={<Components />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
