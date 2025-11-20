@@ -1,12 +1,18 @@
-function List({ nomi }) {
+// Compound Component per List
+function List({ children }) {
     return (
         <ul className="list-container">
-            {nomi.map((nome, index) => (
-                <li key={index} className="list-item">
-                    {nome}
-                </li>
-            ))}
+            {children}
         </ul>
+    )
+}
+
+// Subcomponente Item
+List.Item = function ListItem({ children }) {
+    return (
+        <li className="list-item">
+            {children}
+        </li>
     )
 }
 
