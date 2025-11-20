@@ -1,9 +1,20 @@
 import './App.css'
+import Navbar from './components/Navbar'
+import Header from './components/Header'
+import List from './components/List'
 
 function App() {
+  const nomi = ['Mario', 'Luigi', 'Peach', 'Toad', 'Yoshi', 'Bowser']
+
   return (
     <>
-      <h1 className="main-title">Benvenuto in React con Vite!</h1>
+      <Navbar />
+      <Header />
+
+      <div className="content-section">
+        <h2 className="section-title">Lista Personaggi</h2>
+        <List nomi={nomi} />
+      </div>
 
       <div className="form-container">
         <label htmlFor="userInput" className="input-label">
