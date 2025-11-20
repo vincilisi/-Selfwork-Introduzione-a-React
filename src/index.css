@@ -1,0 +1,107 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Stile per il titolo principale */
+.main-title {
+  font-size: 4em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+/* Container per il form */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+/* Stile per la label */
+.input-label {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #667eea;
+  text-align: center;
+}
+
+/* Stile per l'input */
+.custom-input {
+  width: 400px;
+  padding: 18px 25px;
+  font-size: 1.5em;
+  border: 3px solid #667eea;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.custom-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #764ba2;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  transform: scale(1.05);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  .custom-input {
+    background: white;
+    color: #213547;
+  }
+
+  .custom-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5em;
+  }
+
+  .custom-input {
+    width: 100%;
+    max-width: 350px;
+    font-size: 1.2em;
+  }
+}
